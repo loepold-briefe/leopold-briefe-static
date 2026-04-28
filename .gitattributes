@@ -1,0 +1,3 @@
+html/vendor** linguist-vendored
+saxon/** linguist-vendored
+html/vendor** binary
