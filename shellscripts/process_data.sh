@@ -1,0 +1,1 @@
+uv run add-attributes -g "data/*/*.xml" -b "https://leopold-briefe.acdh.oeaw.ac.at"
