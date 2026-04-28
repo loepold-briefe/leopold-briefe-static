@@ -1,8 +1,39 @@
 :root {
-  --dse-base-color: #005A5A;
+  /* --dse-base-color: #005A5A;
   --dse-base-color-hover: #006D6D;
   --dse-base-color-light: #EEF8F8;
-  --dse-base-color-dark: #D5E6E6;
+  --dse-base-color-dark: #D5E6E6; */
+
+  /* Alternate accessible palettes */
+  /* Classic Blue */
+  /* --dse-base-color: #0B5EA8;
+  --dse-base-color-hover: #0E73CA;
+  --dse-base-color-light: #EEF5FC;
+  --dse-base-color-dark: #D8E6F4; */
+
+  /* Warm Umber */
+  /* --dse-base-color: #8A3B12;
+  --dse-base-color-hover: #A34716;
+  --dse-base-color-light: #FBF2ED;
+  --dse-base-color-dark: #E8D9D1; */
+
+  /* Plum */
+  /* --dse-base-color: #7A1F5C;
+  --dse-base-color-hover: #922671;
+  --dse-base-color-light: #FAEEF5;
+  --dse-base-color-dark: #E8D5E0; */
+
+  /* Indigo Slate */
+  --dse-base-color: #5B4B8A;
+  --dse-base-color-hover: #6D5AA5;
+  --dse-base-color-light: #F2F0F8;
+  --dse-base-color-dark: #DDD8EB;
+
+  /* Forest */
+  /* --dse-base-color: #2F6B2F;
+  --dse-base-color-hover: #3A833A;
+  --dse-base-color-light: #F1F8F1;
+  --dse-base-color-dark: #DAE8DA; */
 }
 
 html {
