@@ -28,6 +28,7 @@
             <body class="d-flex flex-column h-100">
                 <xsl:call-template name="nav_bar"/>
                 <main class="flex-shrink-0 flex-grow-1">
+                    <xsl:call-template name="one_time_alert"/>
                     <div class="container col-xxl-8 pt-3">
                         <div class="row flex-lg-row align-items-center g-5 py-5">
                             <div class="col-lg-6">

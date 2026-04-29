@@ -54,8 +54,10 @@
                                     <th scope="col" tabulator-headerFilter="input" tabulator-formatter="html" tabulator-download="false" tabulator-minWidth="350">Sender</th>
                                     <th scope="col" tabulator-headerFilter="input" tabulator-visible="false" tabulator-download="true">sender_</th>
                                     <th scope="col" tabulator-headerFilter="input" tabulator-formatter="html">Empfänger</th>
-                                    <th scope="col" tabulator-field="sorting" tabulator-headerFilter="input" tabulator-maxWidth="130">Datum</th>
+                                    <th scope="col" tabulator-headerFilter="input" tabulator-maxWidth="130">Datum</th>
                                     <th scope="col" tabulator-headerFilter="input" tabulator-formatter="html">Archiv</th>
+                                    <th scope="col" tabulator-headerFilter="input" tabulator-formatter="html">Metadaten</th>
+                                    <th scope="col" tabulator-headerFilter="input" tabulator-formatter="html">Transkription</th>
                                     <th scope="col" tabulator-headerFilter="input" tabulator-maxWidth="100">ID</th>
                                 </tr>
                             </thead>
@@ -82,6 +84,12 @@
                                         </td>
                                         <td>
                                             <xsl:value-of select="concat(.//tei:msIdentifier/tei:repository/text(), ', ',.//tei:msIdentifier/tei:collection/text()) "/>
+                                        </td>
+                                        <td>
+                                            <xsl:value-of select=".//tei:change[@xml:id='metadaten-status']/text()"/>
+                                        </td>
+                                        <td>
+                                            <xsl:value-of select=".//tei:change[@xml:id='transkription-status']/text()"/>
                                         </td>
                                         <td>
                                             <xsl:value-of select="$docId"/>
