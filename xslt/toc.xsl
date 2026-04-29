@@ -46,39 +46,45 @@
                         </ol>
                     </nav>
                     <div class="container">
-                        <h1><xsl:value-of select="$doc_title"/></h1>
+                        <h1 class="display-5 text-center"><xsl:value-of select="$doc_title"/></h1>
+                        <div class="text-center p-1"><span id="counter1"></span> von <span id="counter2"></span> Briefen</div>
                         <table id="myTable">
                             <thead>
                                 <tr>
-                                    <th scope="col" width="20" tabulator-formatter="html" tabulator-headerSort="false" tabulator-download="false">#</th>
-                                    <th scope="col" tabulator-headerFilter="input">Titel</th>
-                                    <th scope="col" tabulator-headerFilter="input">Dateinname</th>
+                                    <th scope="col" tabulator-headerFilter="input" tabulator-formatter="html" tabulator-download="false" tabulator-minWidth="350">Sender</th>
+                                    <th scope="col" tabulator-headerFilter="input" tabulator-visible="false" tabulator-download="true">sender_</th>
+                                    <th scope="col" tabulator-headerFilter="input" tabulator-formatter="html">Empfänger</th>
+                                    <th scope="col" tabulator-field="sorting" tabulator-headerFilter="input" tabulator-maxWidth="130">Datum</th>
+                                    <th scope="col" tabulator-headerFilter="input" tabulator-formatter="html">Archiv</th>
+                                    <th scope="col" tabulator-headerFilter="input" tabulator-maxWidth="100">ID</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <xsl:for-each
                                     select="collection('../data/editions?select=*.xml')//tei:TEI">
-                                    <xsl:variable name="full_path">
-                                        <xsl:value-of select="document-uri(/)"/>
+                                    <xsl:variable name="docId">
+                                        <xsl:value-of select="replace(@xml:id, '.xml', '')"/>
                                     </xsl:variable>
                                     <tr>
                                         <td>
-                                            <a>
-                                                <xsl:attribute name="href">
-                                                  <xsl:value-of
-                                                  select="replace(tokenize($full_path, '/')[last()], '.xml', '.html')"
-                                                  />
-                                                </xsl:attribute>
-                                                <i class="bi bi-link-45deg"/>
+                                            <a href="{$docId || '.html'}">
+                                                <xsl:value-of select="string-join(.//tei:correspAction[@type='sent']/tei:persName/text(), ', ')"/>
                                             </a>
                                         </td>
                                         <td>
-                                            <xsl:value-of
-                                                select=".//tei:titleStmt/tei:title[1]/text()"/>
+                                            <xsl:value-of select="string-join(.//tei:correspAction[@type='sent']/tei:persName/text(), ', ')"/>
                                         </td>
                                         <td>
-                                            <xsl:value-of select="tokenize($full_path, '/')[last()]"
-                                            />
+                                            <xsl:value-of select="string-join(.//tei:correspAction[@type='received']/tei:persName/text(), ', ')"/>
+                                        </td>
+                                        <td>
+                                            <xsl:value-of select=".//tei:history/tei:origin/tei:origDate/@when-iso"/>
+                                        </td>
+                                        <td>
+                                            <xsl:value-of select="concat(.//tei:msIdentifier/tei:repository/text(), ', ',.//tei:msIdentifier/tei:collection/text()) "/>
+                                        </td>
+                                        <td>
+                                            <xsl:value-of select="$docId"/>
                                         </td>
                                     </tr>
                                 </xsl:for-each>
